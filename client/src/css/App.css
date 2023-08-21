@@ -1,0 +1,493 @@
+#root {
+  text-align: center;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.section-home{
+  /*background-image: "/img/katarifarms.png";*/
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  height: 80vh;
+  width: 100vw;
+
+}
+.section-white{
+  background-color: #f3eee9;
+  color: #78b286;
+  height: auto;
+  width: 95vw;
+  border-color:  #000000;
+  border: 5px;
+}
+.section-green{
+  background-color: #78b286;
+  color: #f3eee9;
+  height:auto;
+  width: auto;
+  border-radius: 18px;
+}
+
+.section-yellow{
+  background-color: #eab802;
+  color: #f3eee9;
+  height: auto;
+  width:  auto;
+  border-radius: 18px;
+}
+
+.homeHeader{
+  color: black;
+  font-family: AdayWithoutSunshine;
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  
+}
+
+.betterThanSprouts{
+  color: black;
+  font-family: AdayWithoutSunshine;
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  padding-bottom: 5%;
+  
+}
+
+.betterThanSprouts2{
+  color: black;
+  font-family: AdayWithoutSunshine;
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+  padding-top: 5px;
+  
+}
+
+.container {
+  display: flex;
+  height: auto;
+  width: 80vw;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.box {
+  flex: 1;
+  width: 25vw;
+  border: 5px solid #78b286;
+  border-radius: 18px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.4;
+  overflow: auto; /* Add scroll if content overflows */
+}
+
+.whyMicrogreens{
+ 
+  height: auto;
+  text-align: center;
+  line-height: 1.3;
+  overflow: hidden;
+  color: #000000;
+ 
+}
+
+.full-page{
+  height: 100vh;
+  width: 100%;
+}
+
+.moreMain{
+  width: 100vw;
+  height: auto;
+  padding:  0% 0% 0% 0%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.moreLeft{
+flex: 1;
+  height: auto;
+  width: 50%;
+  font-size: 5rem;
+  padding-top: 10%;
+  padding-left: 15%;
+  margin-left: 5%;
+  padding-bottom: 20%;
+  text-align: left;
+  line-height: 1;
+
+}
+
+.moreRight{
+flex: 2;
+  width: auto;
+  height: 50%;
+  padding-top: 4%;
+  padding-left: 5%;
+  padding-right: 15%;
+text-align: left;
+ line-height: 1.2;
+}
+
+.signup-form {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: -5%;
+  justify-content: space-between;
+  
+}
+
+.login-image {
+  float: left;
+  flex-direction: column;
+  float: left;
+  width: 40vw;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 40px 40px 40px 100px;
+}
+
+.login-form {
+  padding: 20px;
+}
+
+
+.Radishsketch1{
+  height: 500px;
+  width: 500px;
+}
+
+.registration-form{
+  float: right;
+width: 40vw;
+margin: 50px;
+padding: 15px;
+padding-right: 4rem;
+border-width: 2.5px;
+border-style: solid;
+border-color: #f3eee9;
+ border-radius: 18px;
+}
+
+.recaptcha-container {
+  display: flex;
+  justify-content: center;
+}
+
+.formField{
+  background-color: #f3eee9;
+  color: black;
+  margin: 15px;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.formMesseges{
+  font-size: 1.3rem;
+ margin: 3%;
+}
+ 
+.showPassword{
+  font-size: 1rem;
+}
+
+.subscribeHead{
+  font-size: 3REM;
+}
+
+.subscribeText{
+  text-align: left;
+  line-height: 4px;
+  font-size: 1rem;
+}
+
+
+
+.whatSub{
+  width: auto;
+  height: auto;
+  padding:  0% 2% 0% 10%;
+  overflow: hidden;
+}
+
+.whatLeft{
+  float: left;
+  width: 50%;
+  height: auto;
+  font-size: 3.5rem;
+  margin-left: -5%;
+  margin-top: -5%;
+  padding: 0% 0% 0% -1%;
+  text-align: left;
+  line-height: 1.7;
+  display: flex;
+}
+
+.whatRight{
+  float: right;
+  width: 50%;
+  height: auto;
+  padding: 0% 0% 0% 0%;
+  text-align: left;
+}
+
+.microgreenspic{
+  width: 650px; /* Full width */
+  height: 487.5px;
+  margin-top: -5%;
+  padding-bottom: 5%; /* Maintain aspect ratio */
+}
+
+.About{
+  width: auto;
+  height: auto;
+  line-height: 1.5;
+  text-align: center;
+  padding:  1% 25% 5% 25%;
+  overflow: hidden;
+}
+.footer-container {
+  display: flex;
+  height: auto;
+  width: 80vw;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-box {
+  flex: 1;
+  width: 25vw;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.4;
+  overflow: hidden; /* Add scroll if content overflows */
+}
+
+.footer-address{
+ font-family: AdayWithoutSunshine;
+ font-size: 40px;
+ letter-spacing: 3px;
+}
+
+#footerLinks{
+  color: #f3eee9;
+}
+  @media (max-width:700px){
+ 
+    .section-home{
+      background-repeat: no-repeat;
+      background-size: 100vw;
+      height: 30vh;
+      width: 100vw;
+    
+    }
+    .whyMicrogreens{
+      font-size: 1rem;
+    }
+
+    .betterThanSprouts{
+      font-size: 3rem; 
+    }
+
+    .betterThanSprouts2{
+      font-size: 2rem; 
+      padding: 1.1%;
+    }
+    
+    .moreMain{
+      display: flex;
+      flex-direction: column;
+    } 
+.moreLeft{
+  margin: 5%;
+  padding: 10%;
+  font-size: 3rem;
+   margin-bottom: -20%;
+
+}
+.moreRight{
+  font-size: 1.5rem;
+  width: auto;
+  height: auto;
+  margin: 0%;
+}
+
+.container {
+  display: flex;
+  height: auto;
+  width: 80vw;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.box {
+  flex: 1;
+  width: auto;
+  border: 5px solid #78b286;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.4;
+  overflow: auto; /* Add scroll if content overflows */
+}
+
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  justify-content: space-evenly;
+  
+}
+.login-image {
+  flex: 1;
+  height: 40%;
+  margin-top: -15%;
+  margin-bottom: 5%;
+  margin-right: 35%;
+
+  }
+
+  .Radishsketch1{
+    height: 150px;
+    width: 150px;
+  }
+
+.registration-form{
+  flex: 1;
+  width: auto;
+  margin-top: -5%;
+  margin-bottom: 5%;
+  margin-right: 25%;
+ border-radius: 8px;
+}
+
+.formField{
+  background-color: #f3eee9;
+  color: black;
+  margin: 1%;
+  font-family: Montserrat;
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.subscribeHead{
+  font-size: 2REM;
+}
+
+.subscribeText{
+  text-align: left;
+  line-height: 4px;
+  font-size: 1rem;
+}
+
+.whatSub{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: auto;
+  height: auto;
+  padding:  0% 2% 0% 5%;
+  overflow: hidden;
+  flex-direction: coloumn;
+}
+
+.whatLeft{
+  flex: 1;
+  width: 35%;
+  height: auto;
+  font-size: 2rem;
+  padding: 0% 0% 0% 0%;
+  text-align: left;
+  line-height: 1.7;
+}
+
+.whatRight{
+  flex: 1;
+  width: 50%;
+  height: auto;
+  padding: 0% 0% 0% 0%;
+  text-align: center;
+}
+
+.microgreenspic{
+  width: 350px; /* Full width */
+  height: 262.5px;
+  margin-left: -3%; /* Maintain aspect ratio */
+}
+
+
+.About{
+  font-size: 1rem;
+  margin-top: -15%;
+  padding: 5% 10% 5% 10%;
+}
+
+.footer{
+  font-size: 1rem;
+  margin-top: -15%;
+}
+
+.footer-container {
+  display: flex;
+  height: auto;
+  width: 80vw;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-box {
+  flex: 1;
+  width: auto;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.4;
+  overflow: hidden; 
+}
+
+#fb2{
+  height: 2px;
+}
+.footer-address{
+  font-size: 1rem;
+
+  }
+  .footer-sketch{
+    width: 120px;
+    height: 150px;
+  }
+  
+  }
+
+  @media (min-width: 600px) and (max-width: 1299px) {
+  
+    .signup-form{
+      margin-left: -1%;
+    }
+  }

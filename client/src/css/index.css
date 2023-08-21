@@ -1,0 +1,100 @@
+:root {
+ 
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #000000;
+  background-color: #f3eee9;
+  
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(/src/assets/fonts/FontsFree-Net-Montserrat-Regular-1.ttf);
+}
+@font-face {
+  font-family: AdayWithoutSunshine;
+  src: url(/src/assets/fonts/A-DAY-WITHOUT-SUN.otf)
+}
+a {
+  font-weight: 500;
+  color: black;
+  text-decoration: inherit;
+}
+a:hover {
+  color: darkslategrey;
+}
+
+body {
+  margin-left: -2px;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  text-decoration: solid;
+  font-style: bold;
+  display: flex;
+  place-items: center;
+  width: 100vw;
+  min-height: 100vh;
+ overflow-x: hidden;
+}
+
+.routes{
+margin-top: -25%;
+}
+
+h1, h2 {
+  font-family: AdayWithoutSunshine;
+  font-size: 5rem;
+  letter-spacing: 0.2rem;
+}
+
+ h3, h4, h5, h6 {
+  font-family: AdayWithoutSunshine;
+ }
+
+ h3 {
+   font-size: 4rem;
+   letter-spacing: 0.5rem;
+
+  }
+h4{
+  font-size: 3rem;
+}
+
+button {
+  border-radius: 8px;
+  color: #f3eee9;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #eab802;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (max-width:1300px){
+  body{
+    width: 100vw;
+  }
+   
+
+  h2{
+    font-size: 3rem;
+  }
+}
+
+button {
+  background-color: #000000;
+  padding: 5%;
+  margin: 5%;
+}
+
+
