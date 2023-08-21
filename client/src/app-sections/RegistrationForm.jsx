@@ -33,10 +33,10 @@ function RegistrationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-   // if (!captchaValue) {
-     // setErrorMessage('Please confirm you are not a robot.');
-   //   return;
-    //}
+    if (!captchaValue) {
+      setErrorMessage('Please confirm you are not a robot.');
+      return;
+    }
 
     // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
@@ -126,9 +126,7 @@ function RegistrationForm() {
         <label><input type="checkbox"  className='showPassword' onChange={togglePasswordVisibility}/><span className='showPassword'> ShowPassword</span> </label>
         <br/>
         <div className="recaptcha-container">  
-        {/*  
-        <ReCAPTCHA sitekey="6LdvDcMnAAAAAMqbJQM0NN4l1vRtN8UAP_TJOeB_" onChange={handleCaptchaChange}/>
-        */}
+        <ReCAPTCHA sitekey="6LdvDcMnAAAAAMqbJQM0NN4l1vRtN8UAP_TJOeB_" onChange={handleCaptchaChange}/>s
         </div>
         {!passwordsMatch && <p className='formMesseges' style={{ color: 'red' }}>Passwords do not match.</p>}
         {errorMessage && <p  className='formMesseges' style={{ color: 'red' }}>{errorMessage}</p>}
