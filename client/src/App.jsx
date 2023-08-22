@@ -6,7 +6,7 @@ import  AllUsers from './adminDashboard/allUsers.jsx';
 import MySubscription from './app-sections/mysubscription.jsx';
 import LoginForm from "./LoginForm.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./home.jsx";
+import Home from "./Home.jsx";
 import AGB from "./AGBModal.jsx";
 
 function App() {
