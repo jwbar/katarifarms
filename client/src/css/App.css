@@ -291,6 +291,35 @@ border-color: #f3eee9;
   color: #f3eee9;
 }
   @media (max-width:700px){
+    .homeHeader{
+      color: black;
+      font-family: AdayWithoutSunshine;
+      font-size: 4rem;
+      font-weight: bold;
+      letter-spacing: 5px;
+      
+    }
+    
+    .betterThanSprouts{
+      color: black;
+      font-family: AdayWithoutSunshine;
+      font-size: 3.5rem;
+      font-weight: bold;
+      letter-spacing: 5px;
+      padding-bottom: 5%;
+      
+    }
+    
+    .betterThanSprouts2{
+      color: black;
+      font-family: AdayWithoutSunshine;
+      font-size: 3.5rem;
+      font-weight: bold;
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+      padding-top: 5px;
+      
+    }
  
     .section-home{
       background-repeat: no-repeat;

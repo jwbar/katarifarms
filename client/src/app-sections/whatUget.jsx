@@ -1,4 +1,4 @@
-import peassketch from '../assets/microgreens-photo.png'
+import peassketch from '../assets/microgreens-photo.webp'
 import '../css/App.css';
 const whatUget = () => { 
 

@@ -4,7 +4,7 @@ import { useState } from "react";
 import './css/App.css';
 import './css/index.css';
 import  katarifarmsbanner from './assets/katarifarms.svg' 
-import  katarifarmsbannersmall from './assets/katarifarm-banner-small.png'
+import  katarifarmsbannersmall from './assets/katarifarm-banner-small.webp'
 import  Suscribe from './app-sections/suscribe.jsx';
 import  './css/modal.css';
 import WhatMicrogreens from "./app-sections/whatMicrogreens.jsx";

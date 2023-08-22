@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Radishsketch from '../assets/radish-sketch.png';
+import Radishsketch from '../assets/radish-sketch.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import '../css/App.css';
