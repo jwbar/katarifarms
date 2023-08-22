@@ -5,13 +5,13 @@ import './css/App.css';
 import './css/index.css';
 import  katarifarmsbanner from './assets/katarifarms.svg' 
 import  katarifarmsbannersmall from './assets/katarifarm-banner-small.png'
-import  Suscribe from './app-sections/suscribe';
+import  Suscribe from './app-sections/suscribe.jsx';
 import  './css/modal.css';
-import WhatMicrogreens from "./app-sections/whatMicrogreens";
-import UpTo40x from "./app-sections/upTo40x";
-import WhatUget from "./app-sections/whatUget";
-import Footer from "./app-sections/footer";
-import AboutUs from "./app-sections/about";
+import WhatMicrogreens from "./app-sections/whatMicrogreens.jsx";
+import UpTo40x from "./app-sections/upTo40x.jsx";
+import WhatUget from "./app-sections/whatUget.jsx";
+import Footer from "./app-sections/footer.jsx";
+import AboutUs from "./app-sections/about.jsx";
 
 
 

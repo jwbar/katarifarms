@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import '../css/App.css';
 import '../css/modal.css';
-import AGBmodal from "../AGBModal";
+import AGBmodal from "../AGBModal.jsx";
 
 const Footer = () => {
     const [isModalOpen, setIsModalOpen] = useState(false); // State to control the modal's visibility

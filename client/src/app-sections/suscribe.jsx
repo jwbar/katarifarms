@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import  Radishsketch1 from '../../src/assets/radish-sketch1.png'
-import RegistrationForm from './RegistrationForm';
+import RegistrationForm from './RegistrationForm.jsx';
 import  '../css/App.css';
 
 const Suscribe= () => {

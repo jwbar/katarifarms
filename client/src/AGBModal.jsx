@@ -1,4 +1,4 @@
-import AGB  from './agb';
+import AGB  from './agb.jsx';
 import PropTypes from 'prop-types';
 import './css/agb.css';
 

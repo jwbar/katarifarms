@@ -1,6 +1,6 @@
 import "./payments.css";
 import axios from 'axios'; // if you're using axios for API calls
-import PayPalButton from './paypalButton';
+import PayPalButton from './paypalButton.jsx';
 
 const PaypalPayment = ({ payAmount }) => {
 

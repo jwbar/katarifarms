@@ -13,7 +13,7 @@ const AGBPopup = ({ isOpen, onRequestClose }) => {
                     <div className="">
                     <div div className="">  
                     <strong>General Terms and Conditions (AGB) for Katari.farm</strong>
-
+<br />  
 <strong>1. Scope</strong>
 <p>These General Terms and Conditions apply to all business relations between Katari.farms, hereinafter referred to as the "Provider", and its customers via the website <a href="https://katari.farm">https://katari.farm</a>, hereinafter referred to as the "Website".</p>
 

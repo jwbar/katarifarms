@@ -3,7 +3,7 @@ import '../css/user.css';
 import '../css/app.css';
 import { useNavigate } from 'react-router-dom'; // You'll need to import this for redirection
 import axios from 'axios';
-import PaymentsPage from "../payments/paymentPage"
+import PaymentsPage from "../payments/paymentPage.jsx"
 
 const MySubscription = () => {
 

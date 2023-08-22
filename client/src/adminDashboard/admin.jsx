@@ -1,13 +1,13 @@
 
 import "./admin.css";
-import Tuesdays from './tuesdays';
-import CSVImporter from './csvImport';
-import B2Cimport from "./B2Cimport";
+//import Tuesdays from './tuesdays';
+import CSVImporter from './csvImport.jsx';
+import B2Cimport from "./B2Cimport.jsx";
 import Grass from "/src/assets/grass-leaf-plant.svg";
 import { isValidElement } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import HarvestRecords from "./HarvestRecords";
+import HarvestRecords from "./HarvestRecords.jsx";
 
 const Admin = () => {
 

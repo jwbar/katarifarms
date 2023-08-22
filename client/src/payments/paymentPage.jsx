@@ -1,5 +1,5 @@
 import "./payments.css";
-import PaypalPayment from './paypalModal';
+import PaypalPayment from './paypalModal.jsx';
 import PropTypes from 'prop-types';
 
 

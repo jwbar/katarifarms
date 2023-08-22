@@ -1,4 +1,4 @@
-import LoginForm from './LoginForm';
+import LoginForm from './LoginForm.jsx';
 import PropTypes from 'prop-types';
 import './css/modal.css';
 

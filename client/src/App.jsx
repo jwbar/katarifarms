@@ -1,13 +1,13 @@
 
 import './css/index.css';
-import  Suscribe from './app-sections/suscribe';
-import  Admin from './adminDashboard/admin';
-import  AllUsers from './adminDashboard/allUsers';
-import MySubscription from './app-sections/mysubscription';
-import LoginForm from "./LoginForm";
+import  Suscribe from './app-sections/suscribe.jsx';
+import  Admin from './adminDashboard/admin.jsx';
+import  AllUsers from './adminDashboard/allUsers.jsx';
+import MySubscription from './app-sections/mysubscription.jsx';
+import LoginForm from "./LoginForm.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./home";
-import AGB from "./AGBModal";
+import Home from "./home.jsx";
+import AGB from "./AGBModal.jsx";
 
 function App() {
 
