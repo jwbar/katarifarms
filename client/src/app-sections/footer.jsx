@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import '../css/App.css';
 import '../css/modal.css';
-import AGBmodal from "../AGBModal.jsx";
+import AgbModal from "../AGBModal.jsx";
+import PropTypes from 'prop-types';
 
-const Footer = () => {
+
+const Footer = ({ isAgbModalOpen, setIsAgbModalOpen }) => {
     const [isModalOpen, setIsModalOpen] = useState(false); // State to control the modal's visibility
 
     const openModal = () => {
@@ -56,10 +58,13 @@ const Footer = () => {
             </div>
 
             {/* Render the AGBmodal with the required props */}
-            <AGBmodal isOpen={isModalOpen} onClose={closeModal} />
+            <AgbModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
         </> 
     );
 }
-
+Footer.propTypes = {
+    isAgbModalOpen: PropTypes.bool.isRequired,
+    setIsAgbModalOpen: PropTypes.func.isRequired,
+  };
 export default Footer;

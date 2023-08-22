@@ -15,6 +15,7 @@ import AboutUs from "./app-sections/about.jsx";
 
 
 
+
 function Home() {
   const [data, setData] = useState();
   const urlWithProxy = "/api/v1";
@@ -27,7 +28,7 @@ function Home() {
         console.error(err);
       });
   }
-
+  const [isAgbModalOpen, setIsAgbModalOpen] = useState(false);
   return (
     <div className="App">
     
@@ -54,7 +55,8 @@ function Home() {
       </section>
       {/* ----> Footer*/}
       <section className="section-green">
-<Footer />     
+      <Footer isAgbModalOpen={isAgbModalOpen} setIsAgbModalOpen={setIsAgbModalOpen} />
+
  </section> 
   </div>
   );

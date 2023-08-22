@@ -1,5 +1,5 @@
 
-.modal-overlay {
+.agb-overlay {
     position: fixed;
     top: 100px;
     left: 200px;
@@ -17,15 +17,14 @@
   
   }
   
-  .modal-content {
+  .agb-content {
     background-color: #f3eee9;
     font-size: 1rem;
-margin-top: 220%;
+margin-top: 240%;
     color: #000;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    overflow: scroll;
   }
   
   .close-button {
@@ -50,6 +49,14 @@ margin-top: 220%;
       position: absolute;
       cursor: pointer;
     }
-  
+    .agb-content {
+      background-color: #f3eee9;
+      font-size: 1rem;
+  margin-top: 2600%;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    }
 
   }
