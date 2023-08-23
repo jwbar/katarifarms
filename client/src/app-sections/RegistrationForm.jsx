@@ -48,7 +48,7 @@ function RegistrationForm() {
       const formattedDate = moment().format('DD.MM.YY');
 
       // Check if email or username is already taken
-      const checkResponse = await axios.post('http://katari.farm:5173/api/check-existing', {
+      const checkResponse = await axios.post('https://katari.farm:5173/api/check-existing', {
         email: formData.email,
         username: formData.username,
       });
@@ -59,7 +59,7 @@ function RegistrationForm() {
       }
 
       // POST request to the API
-      await axios.post('http://katari.farm:5173/api/create', {
+      await axios.post('https://katari.farm:5173/api/create', {
         username: formData.username,
         email: formData.email,
         password: formData.password,
