@@ -16,7 +16,7 @@ function subscribersDay() {
         subscriptionActive: "Yes",        // Add more filters as needed
       };
 
-      const response = await axios.get('https://katari.farm:5173/api/get-data', {
+      const response = await axios.get('/api/get-data', {
         params: filters,
       });
       setData(response.data);

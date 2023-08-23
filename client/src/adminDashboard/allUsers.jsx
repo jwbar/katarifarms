@@ -18,7 +18,7 @@ function DatabaseContent() {
           subscriptionStatus: 1,
           // Add more filters as needed
         };
-      const response = await axios.get('https://katari.farm:5173/api/get-data'); // Replace with your API endpoint
+      const response = await axios.get('/api/get-data'); // Replace with your API endpoint
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
