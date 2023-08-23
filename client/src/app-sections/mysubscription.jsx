@@ -38,7 +38,7 @@ const MySubscription = () => {
       // Assuming you have a username saved in the loggedInUser object
       const fetchUserData = async () => {
           try {
-              const response = await axios.get('http://katari.farm:5173/api/user-details', {
+              const response = await axios.get('https://katari.farm:5173/api/user-details', {
                   params: {
                       username: loggedInUser.username
                   }
@@ -90,7 +90,7 @@ const MySubscription = () => {
       activeStatus: selectedStatus === 'true'
     };
     try {
-      const response = await axios.put('http://katari.farm:5173/api/update-user-details', profile);
+      const response = await axios.put('https://katari.farm:5173/api/update-user-details', profile);
       
       if (response.data.success) {
         // If the update is successful, update the 'user' state with the latest data

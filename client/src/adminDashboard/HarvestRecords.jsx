@@ -24,7 +24,7 @@ function HarvestRecords() {
     
     try {
       // Make a POST request to the Express API to create data in the database
-      await axios.post('http://katari.farm:5173/api/harvest', {
+      await axios.post('https://katari.farm:5173/api/harvest', {
         Date: formattedDate,
         Radish: formData.Radish,
         Daikon: formData.Daikon,
