@@ -34,7 +34,7 @@ const LoginForm = () => {
   
     try {
       // Make a POST request to the Express API for user authentication
-      const response = await axios.post('http://localhost:5173/api/login', {
+      const response = await axios.post('http://katari.farm:5173/api/login', {
         username: formData.username,
         password: formData.password,
       });

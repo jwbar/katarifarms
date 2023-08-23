@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/katariUsers', {
+mongoose.connect('mongodb://katari.farm:27017/katariUsers', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, (err) => {

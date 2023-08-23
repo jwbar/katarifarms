@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Tuesdays() {
+function subscribersDay() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -12,11 +12,11 @@ function Tuesdays() {
     try {
       // Define your filter criteria here
       const filters = {
-        DeliveryDay: 'Tuesday',
-        ActiveStatus: "Yes",        // Add more filters as needed
+        deliveryDay: 'Tuesday',
+        subscriptionActive: "Yes",        // Add more filters as needed
       };
 
-      const response = await axios.get('http://localhost:5173/api/get-data', {
+      const response = await axios.get('http://katari.farm:5173/api/get-data', {
         params: filters,
       });
       setData(response.data);
