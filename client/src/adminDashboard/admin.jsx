@@ -8,20 +8,22 @@ import { isValidElement } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import HarvestRecords from "./HarvestRecords.jsx";
+import SubscribersDay from './subscribersDay'; // Assuming it's in the same directory
+
 
 const Admin = () => {
-
+  const [userCount, setUserCount] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     // You should get this from your actual user state or context
     // For now, we'll assume it's stored in local storage for simplicity
-    const storedUser = localStorage.getItem('user');
-    const user = storedUser ? JSON.parse(storedUser) : null;
+         const storedUser = localStorage.getItem('user');
+        const user = storedUser ? JSON.parse(storedUser) : null;
 
     if (!user || user.role !== 'admin') {
         // Redirect to login page if the user isn't logged in or doesn't have an "Admin" role
-        navigate('/login');
+         navigate('/login');
     }
     console.log(user.role)
 }, [navigate]);
@@ -44,14 +46,20 @@ const Admin = () => {
   return (
     <div className="admin-overlay"> 
     <div className="admin-content"> 
+    <div className="admin-fieldsets-container"> 
+    <div className="admin-fieldsets-box"> 
       <br/> 
       <span className='adminWelcome'>Hallo! happy {dayOfWeekString} </span> 
       <br/>
-      You have <span className='adminWelcome'> {numOfSubscribers} </span> subscribers to haverst today 
+      You have <span className='adminWelcome'> {userCount} </span> subscribers to haverst today 
       <br />
       that is a total of <span className='adminWelcome'>  {total2Harvest} </span> -//-  <span className='adminWelcome'> {howMuchofEach} </span> of each type 
       <br/>
+</div>
+<div className="admin-fieldsets-box">  
+<div> <SubscribersDay deliveryDay={dayOfWeekString} onUserCountChange={setUserCount} /> </div>  </div>
 
+</div>
       <div className="admin-fieldsets-container"> 
         <div className="admin-fieldsets-box"> 
           <fieldset>  

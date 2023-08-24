@@ -4,7 +4,7 @@
     "react-modal": "^3.16.1"
   },
   "scripts": {
-    "proxy": "http://localhost:5173",
+    "proxy": "http://localhost:3000",
     "start": "concurrently \"cd ./server && npm run server\" \"cd ./client && npm run dev\""
   }
 }

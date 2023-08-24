@@ -1,62 +1,55 @@
-
 .agb-overlay {
-    position: fixed;
-    top: 100px;
-    left: 200px;
-    width:  30vw;
-    height:  50vh;
-    background-color:  rgba(67, 100, 75, 0.75);
-    border-width: 2px;
-    border-color: #000;
-    border-style: double;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    overflow: auto;
-  
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(67, 100, 75, 0.75);
+  border-width: 2px;
+  border-color: #000;
+  border-style: double;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: auto;
+}
+
+.agb-content {
+  width: 30vw; /* Adjust width here instead of in the overlay */
+  height: 50vh; /* Adjust height here instead of in the overlay */
+  background-color: #f3eee9;
+  font-size: 1rem;
+  color: #000;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  overflow-y: scroll;
+}
+
+.close-button {
+  color: #f3eee9;
+  background-color: #000;
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
   .agb-content {
-    background-color: #f3eee9;
-    font-size: 1rem;
-margin-top: 240%;
-    color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+      width: 70vw; /* Use most of the screen width */
+      max-height: 80vh; /* Allow for up to 90% of the screen height */
+      padding: 10px; /* Reduced padding on small screens */
+      margin-top: 0; /* Reset any potential top margin */
+      overflow: auto; /* Allow content to scroll if it exceeds the box size */
+      box-sizing: border-box; /* Ensure padding and border are included in total width and height */
   }
-  
+
   .close-button {
-    color: #f3eee9;
-    background-color: #000;
-   position: absolute;
-    top: 28%;
-    right: 42%;
-    font-size: 25px;
-    position: absolute;
-   
-    cursor: pointer;
+      top: 5px; /* Keep it close to the top */
+      right: 5px; /* Keep it close to the right side */
+      z-index: 1; /* Ensure it stays on top of other content */
   }
-
-  @media (max-width:600px){
-    .close-button {
-      color: #f3eee9;
-     position: absolute;
-      top: 40%;
-      right: 50%;
-      font-size: 25px;
-      position: absolute;
-      cursor: pointer;
-    }
-    .agb-content {
-      background-color: #f3eee9;
-      font-size: 1rem;
-  margin-top: 2600%;
-      color: #000;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-  }
+}

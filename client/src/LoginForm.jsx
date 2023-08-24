@@ -71,7 +71,7 @@ const LoginForm = () => {
     <form className="login-form" onSubmit={handleSubmit}>
       Username:
       <br />
-      <input type="text" name="username" className='formField' placeholder="Username or Email" onChange={handleChange} />
+      <input type="text" name="username" className='formField' placeholder="Username" onChange={handleChange} />
       <br />
       Password:
       <br />

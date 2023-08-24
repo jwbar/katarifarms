@@ -1,43 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function subscribersDay() {
-  const [data, setData] = useState([]);
+function SubscribersDay({ deliveryDay, onUserCountChange }) {
+    const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+    useEffect(() => {
+        fetchData();
+    }, [deliveryDay]);
 
-  const fetchData = async () => {
-    try {
-      // Define your filter criteria here
-      const filters = {
-        deliveryDay: 'Tuesday',
-        subscriptionActive: "Yes",        // Add more filters as needed
-      };
+    const fetchData = async () => {
+        try {
+            const filters = {
+                deliveryDay: deliveryDay,
+                subscriptionActive: "Yes",
+            };
 
-      const response = await axios.get('/api/get-data', {
-        params: filters,
-      });
-      setData(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+            const response = await axios.get('/api/get-data', {
+                params: filters,
+            });
+            setData(response.data);
 
-  return (
-    <div>
-      <h2>Data Sets with Specific Filters</h2>
-      <ul>
-        {data.map((item) => (
-          <li key={item._id}>
-            {/* Render the properties you want */}
-            Username: {item.username}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+            // Notify the parent component about the user count
+            onUserCountChange(response.data.length);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    return (
+        <div>
+            <span className='adminWelcome'>People for today: </span>
+            <ul>
+                {data.map((item) => (
+                    <li key={item._id}>
+                        Username: {item.username}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }
 
-export default Tuesdays;
+export default SubscribersDay;
