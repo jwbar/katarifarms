@@ -18,10 +18,15 @@ function SubscribersDay({ deliveryDay, onUserCountChange }) {
             const response = await axios.get('/api/get-data', {
                 params: filters,
             });
-            setData(response.data);
+            
+            // Check if the data received is an array
+            if (Array.isArray(response.data)) {
+                setData(response.data);
+                onUserCountChange(response.data.length);
+            } else {
+                console.error("API did not return an array:", response.data);
+            }
 
-            // Notify the parent component about the user count
-            onUserCountChange(response.data.length);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
