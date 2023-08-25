@@ -7,7 +7,7 @@ const cors = require('cors');
 const User = require('./User');
 const Harvest = require("./Harvest");
 const bcrypt = require('bcrypt');
-const nodemailer = require('nodemailer');
+const sgMail = require('@sendgrid/mail');  // Import SendGrid mail library
 
 const app = express();
 const port = 5173;
@@ -31,7 +31,24 @@ app.use((req, res, next) => {
 });
 
 
+// Setup SendGrid API key
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+const sendEmail = async (to, subject, text) => {
+    const msg = {
+        to: to,
+        from: process.env.EMAIL,   // Your SendGrid email, or a verified sender
+        subject: subject,
+        text: text
+    };
+
+    try {
+        await sgMail.send(msg);
+        console.log('Email sent successfully to:', to);
+    } catch (error) {
+        console.error('Error sending email:', error);
+    }
+};
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/katariUsers', {
@@ -68,15 +85,6 @@ app.post('/api/check-existing', async (req, res) => {
 
 
 
-let transporter = nodemailer.createTransport({
-   host: 'katari.farm',
-   port: 465,
-   secure: true,
-    auth: {
-        user: process.env.EMAIL,  
-        pass: process.env.EMAIL_PASSWORD   // Use your Gmail password. Ideally, use environment variables to store this
-    }
-});
 
 
 app.post('/api/create', async (req, res) => {
@@ -88,23 +96,11 @@ app.post('/api/create', async (req, res) => {
         });
         await newUser.save();
 
-        // Send confirmation email to the new user
-        let userMailOptions = {
-            from: 'fresh@katari.farm',
-            to: req.body.email,
-            subject: 'Welcome your Microgreens Subscription',
-            text: 'Thank you for registering for your Micogreens Subscriptions: you can log in to your Subcriptions managment account and finish adding your account details and finalize payments here https://katari.farm/user ', 
-        };
-        await transporter.sendMail(userMailOptions);
+          // Send confirmation email to the new user
+    await sendEmail(req.body.email, 'Welcome to your Microgreens Subscription', 'Thank you for registering for your Micogreens Subscriptions: you can log in to your Subscriptions management account and finish adding your account details and finalize payments here https://katari.farm/user');
 
-        // Send notification email to yourself
-        let adminMailOptions = {
-            from: 'fresh@katari.farm',
-            to: 'fresh@katari.farm',  // Your admin email here
-            subject: 'New User Signup Notification',
-            text: `A new user has signed up with the email: ${req.body.email} and username: ${req.body.username}`
-        };
-        await transporter.sendMail(adminMailOptions);
+    // Send notification email to yourself
+    await sendEmail('fresh@katari.farm', 'New User Signup Notification', `A new user has signed up with the email: ${req.body.email} and username: ${req.body.username}`);
 
         console.log('User created and emails sent successfully');
         res.status(201).json({ success: true, user: newUser, message: 'Registration and emails sent successfully!' });
@@ -199,14 +195,9 @@ app.put('/api/update-user-details', async (req, res) => {
 
   const updateResult = await updateUserInDB(userData);
 
-    // Send confirmation email to the new user
-    let userMailOptions = {
-        from: 'fresh@katari.farm',
-        to: 'fresh@katari.farm',
-        subject: `${req.body.username} update`,
-        text: `${req.body.username} updated their profile`,
-    }
-    await transporter.sendMail(userMailOptions);
+    // Send confirmation email
+    await sendEmail('fresh@katari.farm', `${req.body.username} update`, `${req.body.username} updated their profile`);
+
   if (updateResult) {
       res.json({ success: true, message: 'User updated successfully' });
   } else {
@@ -222,23 +213,11 @@ app.post('/api/sendPaymentEmail', async (req, res) => {
         return res.status(400).send('Both subject and body are required.');
     }
 
-    try {
-        let info = await transporter.sendMail({
-            from: 'fresh@katari.farm',  // sender address
-            to: "fresh@katari.farm",                 // list of receivers
-            subject: `${req.body.username} Paid for a new Month Subscription`,
-            text: bod`${req.body.username} Paid for a new month`,                                  // plain text body
-            // html: "<b>Hello world?</b>"               // optional html body
-        });
+    await sendEmail("fresh@katari.farm", `${req.body.username} Paid for a new Month Subscription`, `${req.body.username} Paid for a new month`);
 
-        console.log("Message sent: %s", info.messageId);
-        res.status(200).send('Email sent successfully.');
-
-    } catch (error) {
-        console.error("Error sending email:", error);
-        res.status(500).send('Internal server error.');
-    }
+    res.status(200).send('Email sent successfully.');
 });
+
 
 app.post('/api/Harvest', async (req, res) => {
     try {
