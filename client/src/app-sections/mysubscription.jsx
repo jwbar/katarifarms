@@ -165,10 +165,6 @@ const MySubscription = () => {
         <label>Telegram: </label>
           <input type="text" name="telegram" value={profile.telegram} onChange={handleChange} required />
         </div>
-        <div>
-        <label>CrcWallet: </label>
-          <input type="text" name="CrcWallet" value={profile.CrcWallet} onChange={handleChange} required/>
-        </div>
         </fieldset>
         <fieldset>
         <div>
@@ -241,9 +237,6 @@ const MySubscription = () => {
         </div>
         <div>
           <strong>Telegram:</strong> {profile.telegram}
-        </div>
-        <div>
-          <strong>CRCWallet:</strong> {profile.CrcWallet}
         </div>
         </fieldset>
         <br />

@@ -6,25 +6,21 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const User = require('./User');
 const Harvest = require("./Harvest");
+const DeliveryDataset = require('./DeliveryDataset');
 const bcrypt = require('bcrypt');
 const sgMail = require('@sendgrid/mail');  // Import SendGrid mail library
 
 const app = express();
-const port = 5173;
+const port = 5000;
 
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/dist')));
-
-// The "catchall" handler: for any request that doesn't match a route above, send back React's index.html file.
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
-  });
-
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors());  // Invoke the cors middleware
 app.use((req, res, next) => {
     res.cookie('name', 'value', { sameSite: 'strict' });
     next();
@@ -62,10 +58,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/katariUsers', {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
-
 app.post('/api/check-existing', async (req, res) => {
     const {email, username} = req.body;
 
@@ -82,7 +74,6 @@ app.post('/api/check-existing', async (req, res) => {
         return res.status(500).json({ error: 'Server error' });
     }
 });
-
 
 
 
@@ -214,6 +205,7 @@ app.post('/api/sendPaymentEmail', async (req, res) => {
     }
 
     await sendEmail("fresh@katari.farm", `${req.body.username} Paid for a new Month Subscription`, `${req.body.username} Paid for a new month`);
+    console.log("Response from SendGrid:", response);
 
     res.status(200).send('Email sent successfully.');
 });
@@ -229,5 +221,92 @@ app.post('/api/Harvest', async (req, res) => {
     } catch (error) {
         console.error('Error saving harvest:', error);
         res.status(500).json({ message: 'Error saving harvest', error: error.message });
+    }
+});
+
+
+///Dispatching!
+// ...
+
+app.get('/api/datasets', async (req, res) => {
+    try {
+        // Get the current day of the week
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const today = new Date();
+        const currentDay = daysOfWeek[today.getDay()];
+
+        const datasets = await User.find({ 
+            deliveryDay: currentDay, 
+            subscriptionActive: 'Yes' 
+        });
+
+        if (!datasets || datasets.length === 0) {
+            return res.status(404).json({ success: false, message: `No datasets found for ${currentDay} with active subscription` });
+        }
+
+        res.status(200).json({ success: true, datasets });
+    } catch (error) {
+        console.error('Error fetching datasets:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+});
+
+
+app.put('/api/datasets/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { subscriptionStatus } = req.body;
+
+        const user = await User.findById(id);
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        user.subscriptionStatus = subscriptionStatus;
+        await user.save();
+
+        res.status(200).json({ success: true, message: 'Updated successfully' });
+
+    } catch (error) {
+        console.error('Error updating dataset:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+});
+// The "catchall" handler: for any request that doesn't match a route above, send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
+
+// ...
+app.post('/api/save-delivery-dataset', async (req, res) => {
+    const data = req.body;
+
+    if (!data || !Array.isArray(data)) {
+        return res.status(400).json({ success: false, message: 'Data is required and should be an array' });
+    }
+
+    try {
+        const savedDatasets = await DeliveryDataset.insertMany(data);
+        res.status(201).json({ success: true, message: 'Datasets saved successfully', datasets: savedDatasets });
+    } catch (error) {
+        console.error('Error saving dataset:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error', error: error.message });
+    }
+    console.log("Received data:", req.body);
+});
+
+// This is just a simplified version, adjust it to your needs
+app.get('/api/get-delivery-by-date/:date', async (req, res) => {
+    const date = req.params.date;
+    try {
+        const datasets = await DeliveryDataset.find({ tourDate: date });
+        res.status(200).json({ success: true, datasets });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error', error: error.message });
     }
 });

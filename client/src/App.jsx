@@ -8,7 +8,8 @@ import LoginForm from "./LoginForm.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home.jsx";
 import AGB from "./AGBModal.jsx";
-
+import Deliver from './adminDashboard/deliver.jsx';
+import Dispo from './adminDashboard/dispo.jsx';
 function App() {
 
   
@@ -24,6 +25,8 @@ function App() {
     <Route exact path='/admin' element={<Admin/>} className="routes"/>
     <Route exact path='/subsribe' element={<Suscribe/>}/>
     <Route exact path='/allusers' element={<AllUsers/>}/>
+    <Route exact path='/deliver' element={<Deliver/>} className="routes"/>
+    <Route exact path='/dispo' element={<Dispo/>} />
     </Routes>
   </Router>
   </div>

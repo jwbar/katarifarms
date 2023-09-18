@@ -130,8 +130,6 @@ fieldset {
     border-radius: 8px;
     padding: 5px;
   }
-  
-  
 
     @media screen and (max-width: 1000px) {
       .admin-overlay{
@@ -141,6 +139,12 @@ fieldset {
         margin-top: -230px;
         flex-direction: column;
       }
+
+      .admin-content {
+        width: 90vw;
+        padding: 20px;
+    }
+
       .footerImage{
         position: fixed;
         bottom: -22%;
@@ -209,55 +213,60 @@ fieldset {
       
     }
 
-    @media screen and (max-width: 1000px) {
-      .admin-content {
-          width: 90vw;
-          padding: 20px;
-      }
-  }
+  @media screen and (max-width: 800px) {
   
-
-    @media screen and (max-width: 800px) {
-      .admin-overlay{
-        background-color: #78b286;
-        width: 100vw;
-        height: 100vh;
-        flex-direction: column;
-      }
-      .footerImage{
-        position: fixed;
-        bottom: -6%;
-        right: -2%;
-        margin-left: 80%;
-        margin-bottom: 10%;
-      }
-      .profileMessege {
-        padding-top: -15%;
-      }
-      .admin-content {
-        background-color: #f3eee9;
-        width:100vw;
-        height: 100vh;
-        padding: 30px;
-        margin-left: -1%;
-        margin-right: 20%;
-        margin-bottom: -10%;
-        font-size: 1rem;
-      }
-      .exit {
-        position:fixed;
-        top: 5%;
-        right: 10%;
-      }
-
-      .admin-fieldsets-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-  
-      }
-      
+    fieldset {
+        width: 90%;  /* adjusted to take almost the full width */
+        margin: 10px auto;  /* centered the fieldset */
     }
-      
-    
-    
+
+    .harvest-form {
+        width: 90%;
+    }
+
+    .harvestField {
+        width: 100%;
+    }
+
+    .admin-fieldsets-container {
+        flex-direction: column;
+        gap: 20px;  /* adjust space between fieldsets for vertical layout */
+    }
+
+    .admin-fieldsets-box {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    /* ... Your other styles for max-width 800px ... */
+
+}
+
+/* Additions for even smaller screens, typically very narrow viewports */
+@media screen and (max-width: 500px) {
+
+    input, .harvestField {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .adminWelcome {
+        font-size: 2rem;
+    }
+
+    .Profile-button, .Profile-button-green {
+        font-size: 18px;
+        padding: 0.5rem;
+    }
+
+    .close-button {
+        font-size: 20px;
+        top: 25%;
+        right: 38%;
+    }
+
+    .adminProfileMessege {
+        font-size: 13px;
+    }
+
+}

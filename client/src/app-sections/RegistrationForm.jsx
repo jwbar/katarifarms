@@ -124,7 +124,7 @@ function RegistrationForm() {
         </label>
         <br />
         <label><input type="checkbox"  className='showPassword' onChange={togglePasswordVisibility}/><span className='showPassword'> ShowPassword</span> </label>
-        <br/>
+        <br/> 
         <div className="recaptcha-container">  
         <ReCAPTCHA sitekey="6LdvDcMnAAAAAMqbJQM0NN4l1vRtN8UAP_TJOeB_" onChange={handleCaptchaChange}/>
         </div>
